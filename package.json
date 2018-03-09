@@ -1,0 +1,15 @@
+{
+  "name": "autoclicker",
+  "version": "1.0.0",
+  "description": "An auto clicker.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "DeafeningRoar",
+  "license": "ISC",
+  "dependencies": {
+    "iohook": "^0.1.13",
+    "robotjs": "^0.5.1"
+  }
+}
