@@ -1,11 +1,8 @@
-const robot  = require('robotjs');
 const iohook = require('iohook');
-const { click } = require('./clicker');
+const spawn = require('child_process').spawn;
 
-var mouseCoords;
 var start = false;
-
-
+var child;
 
 iohook.on('keydown', event => {
     if(event.keycode === 1){
@@ -15,10 +12,13 @@ iohook.on('keydown', event => {
 
 iohook.on('keydown', event => {
     if(event.keycode === 43){
-        start = !start;
-        mouseCoords = robot.getMousePos();
+        start = !start
         if(start){
-            start = click(start, mouseCoords);
+            child = spawn('node', ['clicker.js']);
+            child.on('exit', () => start = false);
+        } else {
+            child.kill();
+            start = false;
         }
     }
 });
