@@ -9,7 +9,9 @@
   "author": "DeafeningRoar",
   "license": "ISC",
   "dependencies": {
+    "async": "^2.6.0",
     "iohook": "^0.1.13",
-    "robotjs": "^0.5.1"
+    "robotjs": "^0.5.1",
+    "system-sleep": "^1.3.6"
   }
 }
