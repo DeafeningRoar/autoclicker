@@ -1,5 +1,5 @@
 const iohook = require('iohook');
-const spawn = require('child_process').spawn;
+const exec = require('child_process').execFile;
 
 var start = false;
 var child;
@@ -14,7 +14,7 @@ iohook.on('keydown', event => {
     if(event.keycode === 43){
         start = !start
         if(start){
-            child = spawn('node', ['clicker.js']);
+            child = exec('clickLoop');
             child.on('exit', () => start = false);
         } else {
             child.kill();
