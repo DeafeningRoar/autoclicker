@@ -3,7 +3,7 @@ const { spawn, execFile } = require('child_process');
 
 const isDevelopment = process.env.NODE_ENV === 'development';
 
-const printMenu = ({ listeningToDelayChange, noMove, freeMove, currentDelay, previousDelay }) => {
+const printMenu = ({ listeningToDelayChange, noMove, freeMove, currentDelay }) => {
   console.clear();
   console.log(`Current clicking delay is ${currentDelay}ms (Default=10ms). ${listeningToDelayChange ? '[*]' : ''}\n`);
   console.log(`Press º to start or pause. Moving the mouse will pause. [${noMove ? 'ON' : 'OFF'}]`);
@@ -144,7 +144,4 @@ function initialize() {
   }
 }
 
-process.on('uncaughtException', function (err) {
-  fs.writeFileSync('log.txt', err);
-});
 initialize();
