@@ -1,0 +1,38 @@
+{
+  "name": "autoclicker",
+  "version": "1.0.0",
+  "description": "An auto clicker.",
+  "main": "app.js",
+  "bin": {
+    "autoclicker": "app.js"
+  },
+  "engines": {
+    "node": "12.22.8"
+  },
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development node app.js",
+    "build-dep": "npx pkg clickLoop.js --out-path dist -t node12-win-x64",
+    "build-main": "npx pkg .",
+    "build": "npm run build-main && npm run build-dep"
+  },
+  "author": "DeafeningRoar",
+  "license": "ISC",
+  "dependencies": {
+    "iohook": "^0.7.2",
+    "robotjs": "^0.6.0",
+    "yargs": "^17.3.1"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3"
+  },
+  "pkg": {
+    "scripts": "./*.js",
+    "targets": [
+      "node12-win-x64"
+    ],
+    "outputPath": "dist",
+    "assets": [
+      "clickLoop.js"
+    ]
+  }
+}
